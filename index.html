@@ -3,196 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniela Perez - Portafolio</title>
+    <title>Daniela | Diseñadora UX/UI</title>
     <style>
+        /* ==========================================================================
+           1. RESETEO BÁSICO Y VARIABLES
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-cream: #FFF6CB;
+            --bg-white: #FFFFFF;
+            --bg-input: #EFEFEF;
+            --btn-purple: #4A0E8F;
+            --text-color: #000000;
+            --font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: #ffffff;
-            color: #333333;
-            line-height: 1.6;
+            font-family: var(--font-family);
+            color: var(--text-color);
+            background-color: var(--bg-white);
+            line-height: 1.5;
         }
 
-        /* --- Header / Navegación --- */
-        header {
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================================================
+           2. NAVEGACIÓN
+           ========================================================================== */
+        .navbar {
+            background-color: var(--bg-cream);
+            padding: 30px 60px 10px 60px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            background-color: #ffffff;
+            justify-content: flex-end;
         }
 
-        .logo-placeholder {
-            width: 120px;
-            height: 40px;
-            background-color: #FFF6CB;
-        }
-
-        nav a {
+        .navbar nav a {
             text-decoration: none;
-            color: #333333;
-            margin-left: 30px;
+            color: var(--text-color);
+            margin-left: 40px;
             font-size: 0.95rem;
             font-weight: 500;
         }
 
-        nav a:hover {
-            color: #d1be5e;
+        /* ==========================================================================
+           3. SECCIÓN SOBRE MÍ (HERO)
+           ========================================================================== */
+        .hero-section {
+            background-color: var(--bg-white);
+            padding: 80px 0;
         }
 
-        /* --- Sección Sobre Mí (Hero) --- */
-        .hero {
+        .hero-container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 5%;
-            padding: 80px 10%;
-            background-color: #ffffff;
+            gap: 60px;
         }
 
-        .hero-image-placeholder {
-            width: 40%;
-            aspect-ratio: 1 / 1;
-            background-color: #FFF6CB;
-            min-width: 300px;
+        .hero-image {
+            flex: 1;
+            max-width: 400px;
         }
 
-        .hero-content {
-            width: 55%;
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .hero-content h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
+        .hero-text {
+            flex: 1.2;
         }
 
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #444444;
-            text-align: justify;
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            font-weight: bold;
         }
 
-        /* --- Sección Proyectos --- */
-        .projects {
-            padding: 80px 10%;
+        .hero-text p {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            color: var(--text-color);
+        }
+
+        /* ==========================================================================
+           4. SECCIÓN PROYECTOS
+           ========================================================================== */
+        .projects-section {
+            background-color: var(--bg-cream);
+            padding: 100px 0;
             text-align: center;
-            background-color: #ffffff;
         }
 
-        .projects h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 40px;
+        .projects-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            font-weight: bold;
         }
 
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            justify-content: space-between;
             gap: 30px;
         }
 
-        .project-card-placeholder {
-            background-color: #FFF6CB;
-            aspect-ratio: 4 / 3;
+        .project-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-img-wrapper {
             width: 100%;
+            aspect-ratio: 1.35 / 1;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            margin-bottom: 15px;
         }
 
-        /* --- Sección Contacto --- */
-        .contact {
-            padding: 80px 10%;
+        .project-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        /* ==========================================================================
+           5. SECCIÓN CONTACTO
+           ========================================================================== */
+        .contact-section {
+            background-color: var(--bg-white);
+            padding: 100px 0 60px 0;
+        }
+
+        .contact-container {
+            max-width: 600px;
             text-align: center;
-            background-color: #ffffff;
         }
 
-        .contact h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
+        .contact-section h2 {
+            font-size: 2.2rem;
             margin-bottom: 40px;
+            font-weight: bold;
         }
 
         .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
             text-align: left;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .form-group label {
-            display: block;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            margin-bottom: 8px;
         }
 
         .form-group input,
         .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #e0e0e0;
-            background-color: #fdfdfd;
+            background-color: var(--bg-input);
+            border: none;
             border-radius: 4px;
-            outline: none;
+            padding: 15px;
             font-size: 1rem;
+            width: 100%;
+            font-family: inherit;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #bfae53;
-            background-color: #ffffff;
+        .form-group textarea {
+            resize: none;
         }
 
         .btn-submit {
-            display: block;
-            width: 180px;
-            margin: 40px auto 0 auto;
-            padding: 12px 0;
-            background-color: #FFF6CB;
+            background-color: var(--btn-purple);
+            color: var(--bg-white);
             border: none;
-            border-radius: 20px;
+            border-radius: 25px;
+            padding: 12px 0;
             font-size: 1rem;
-            font-weight: 500;
             cursor: pointer;
-            text-align: center;
-            transition: background-color 0.2s ease;
+            width: 220px;
+            margin: 20px auto 0 auto;
+            transition: opacity 0.2s ease;
         }
 
         .btn-submit:hover {
-            background-color: #f5e7a4;
+            opacity: 0.9;
         }
 
-        /* --- Footer --- */
-        footer {
-            height: 100px;
-            background-color: #FFF6CB;
-            margin-top: 60px;
+        /* ==========================================================================
+           6. BLOQUE DE CIERRE DE PÁGINA (FOOTER)
+           ========================================================================== */
+        .footer-bg {
+            background-color: var(--bg-cream);
+            height: 80px;
+            width: 100%;
         }
 
-        /* --- Responsivo básico --- */
+        /* ==========================================================================
+           7. MEDIA QUERIES (RESPONSIVE)
+           ========================================================================== */
         @media (max-width: 768px) {
-            header { display: flex; flex-direction: column; gap: 15px; }
-            nav a { margin: 0 15px; }
-            .hero { flex-direction: column; text-align: center; gap: 30px; }
-            .hero-image-placeholder { width: 70%; }
-            .hero-content { width: 100%; }
-            .hero-content p { text-align: center; }
-            .projects-grid { grid-template-columns: 1fr; }
+            .navbar {
+                justify-content: center;
+                padding: 20px;
+            }
+            .navbar nav a {
+                margin: 0 15px;
+            }
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .projects-grid {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .project-img-wrapper {
+                max-width: 400px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-placeholder"></div>
+    <header class="navbar">
         <nav>
             <a href="#sobre-mi">Sobre Mi</a>
             <a href="#proyectos">Proyectos</a>
@@ -200,43 +258,66 @@
         </nav>
     </header>
 
-    <section id="sobre-mi" class="hero">
-        <div class="hero-image-placeholder"></div>
-        <div class="hero-content">
-            <h1>Daniela,<br>Diseñadora UX/UI</h1>
-            <p>Soy diseñadora UX/UI, desarrolladora front-end y especialista en branding. Con experiencia en metodologías ágiles, fusiono la investigación con el código para estructurar identidades visuales memorables y productos digitales que optimizan la experiencia del usuario de principio a fin.</p>
+    <section id="sobre-mi" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-image">
+                <img src="profilepic.png" alt="Daniela, Diseñadora UX/UI">
+            </div>
+            <div class="hero-text">
+                <h1>Daniela,<br>Diseñadora UX/UI</h1>
+                <p>Soy diseñadora UX/UI, desarrolladora front-end y especialista en branding. Con experiencia en metodologías ágiles, fusiono la investigación con el código para estructurar identidades visuales memorables y productos digitales que optimizan la experiencia del usuario de principio a fin.</p>
+            </div>
         </div>
     </section>
 
-    <section id="proyectos" class="projects">
-        <h2>Proyectos Destacados</h2>
-        <div class="projects-grid">
-            <div class="project-card-placeholder"></div>
-            <div class="project-card-placeholder"></div>
-            <div class="project-card-placeholder"></div>
+    <section id="proyectos" class="projects-section">
+        <div class="container">
+            <h2>Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="proyecto_02.png" alt="YogaGo">
+                    </div>
+                    <h3>YogaGo</h3>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="proyecto_01.png" alt="Essence">
+                    </div>
+                    <h3>Essence</h3>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="proyecto_03.png" alt="Concentrate">
+                    </div>
+                    <h3>Concentrate</h3>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="contacto" class="contact">
-        <h2>Contacto</h2>
-        <form class="contact-form" onsubmit="event.preventDefault();">
-            <div class="form-group">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name">
-            </div>
-            <div class="form-group">
-                <label for="email">Correo</label>
-                <input type="email" id="email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="message">Mensaje</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Enviar</button>
-        </form>
+    <section id="contacto" class="contact-section">
+        <div class="container contact-container">
+            <h2>Contacto</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+        </div>
     </section>
 
-    <footer></footer>
+    <footer class="footer-bg"></footer>
 
 </body>
 </html>
